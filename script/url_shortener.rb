@@ -100,8 +100,9 @@ def print_stats
   input_url = gets.chomp
   short_url = ShortUrl.find_by_url(input_url)
   visitors = Visit.where(:short_url_id => short_url.id)
-  current_time = Time.now - 600 #REV: you can use 10.minutes.ago instead of Time - 600
+  current_time = Time.now - 600 
   past_ten_min = Visit.where("created_at >= ?", current_time)
+  #REV: you can use 10.minutes.ago instead of Time - 600
 
   puts "Number of Visitors : #{visitors.count}"
   puts "Number of Unique Visitors : #{visitors.uniq.count}"
