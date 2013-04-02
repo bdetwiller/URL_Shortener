@@ -22,6 +22,8 @@ end
 
 gem 'jquery-rails'
 
+gem 'debugger'
+
 gem 'launchy'
 
 # To use ActiveModel has_secure_password

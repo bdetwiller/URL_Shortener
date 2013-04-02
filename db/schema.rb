@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130401220812) do
+ActiveRecord::Schema.define(:version => 20130401235122) do
+
+  create_table "comments", :force => true do |t|
+    t.integer "user_id"
+    t.integer "short_url_id"
+    t.text    "body"
+  end
 
   create_table "long_urls", :force => true do |t|
     t.string "url"
@@ -23,6 +29,15 @@ ActiveRecord::Schema.define(:version => 20130401220812) do
     t.integer "user_id"
   end
 
+  create_table "taggings", :force => true do |t|
+    t.integer "tag_id"
+    t.integer "short_url_id"
+  end
+
+  create_table "tags", :force => true do |t|
+    t.string "name"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "e_mail"
     t.string   "screen_name"
@@ -32,10 +47,10 @@ ActiveRecord::Schema.define(:version => 20130401220812) do
 
   create_table "visits", :force => true do |t|
     t.time     "visit_time"
-    t.integer  "user_id",    :limit => 255
-    t.integer  "link_id",    :limit => 255
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.integer  "user_id",      :limit => 255
+    t.integer  "short_url_id", :limit => 255
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
   end
 
 end
