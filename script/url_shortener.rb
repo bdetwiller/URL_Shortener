@@ -1,3 +1,8 @@
+#REV may want to add in most popular tag functionality.  
+#REV: from what I've heard you want to keep as much logic as you can in your Models, 
+#so may be good to shift some of this functionality into your models class
+#good job overall!
+
 def run
   user = get_user
   loop do
